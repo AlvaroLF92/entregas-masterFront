@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr 1fr;
+  grid-template-rows: auto ;
+  background-color: rgb(40, 99, 103);
+  
+}
+
+nav div p {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
+
+.element-1 {
+  display: flex;
+  margin-left: 10px;
+}
+
+.element-2 {
+  display: flex;
+  justify-content: start;
+}
+
+.element-3 {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(27, 79, 103);
+}
+
+.element-4 {
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+}
+
+@media (width < 1200px) {
+
+   .main-container {
+    position: relative;
+    max-width: 50%;
+    margin-left: 25%;
+    margin-top: 25%;
+    border: 6px solid black;
+    border-left: 12px solid black;
+    border-right: 12px solid black; 
+    padding: 10px;
+   }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 40%;
+      background-color: rgb(40, 99, 103);
+    }
+
+    h1 {
+      font-size: 120%;
+    }
+    
+    .element-1 {
+      display: flex;
+      margin-left: 0px;
+      justify-content: center;
+      background-color: rgb(27, 79, 103);
+    }
+    
+    .element-2 {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .element-3 {
+      display: flex;
+      justify-content: center;
+      background-color: rgb(40, 99, 103);
+    }
+    
+    .element-4 {
+      display: flex;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+}

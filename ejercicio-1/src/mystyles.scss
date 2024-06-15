@@ -1,0 +1,71 @@
+@use "base.scss" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.container-1 {
+  margin-top: 9rem;
+
+  @include mixin-color1;
+
+  .box-base-color {
+    background-color: $base-color1;
+  }
+  .color-box-text {
+    color: $text-color-1;
+  }
+}
+
+.container-2 {
+
+  @include mixin-color2;
+
+  .box-base-color {
+    background-color: $base-color2;
+  }
+
+  .color-box-text {
+    color: $text-color-2;
+  }
+}
+
+.container-3 {
+
+  @include mixin-color3;
+
+  .box-base-color {
+    background-color: $base-color3;
+  }
+  .color-box-text {
+    color: $text-color-3;
+  }
+}
+
+.container-1,.container-2,.container-3 {
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    display: flex;
+    height: 90px;
+    width: 80px;
+    border-radius: 5%;
+    margin: 0.2rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+

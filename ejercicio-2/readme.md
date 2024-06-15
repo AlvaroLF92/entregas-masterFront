@@ -1,0 +1,2 @@
+Para comprobar los distintos temas debemos abrir el archivo "styles.scss", seguidamente en la parte superior encontramos una línea
+con la expresión "@use 'theme-B' as *;" , debemos sustituir las palabras 'theme-B' por 'theme-A' para visualizar los diferentes temas.

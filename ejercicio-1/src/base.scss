@@ -1,0 +1,117 @@
+$base-color1: rgb(70, 116, 232);
+$base-color2: rgb(160, 13, 13);
+$base-color3: rgb(22, 118, 22);
+
+$text-color-1: rgb(180, 241, 165);
+$text-color-2: rgb(235, 161, 96);
+$text-color-3: rgb(130, 232, 243);  
+
+
+
+@mixin mixin-color1 {
+  $i: 1;
+  @while $i <= 4 {
+    .box-darken-#{$i} {
+      background-color: darken($base-color1, 7% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .box-lighten-#{$i} {
+      background-color: lighten($base-color1, 7% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .color-light-text-#{$i} {
+      color: lighten($text-color-1, 10% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .color-dark-text-#{$i} {
+      color: darken($text-color-1, 10% * $i);
+    }
+
+    $i: $i + 1;
+  }
+
+}
+
+@mixin mixin-color2 {
+  $i: 1;
+  @while $i <= 4 {
+    .box-darken-#{$i} {
+      background-color: darken($base-color2, 7% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .box-lighten-#{$i} {
+      background-color: lighten($base-color2, 7% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .color-light-text-#{$i} {
+      color: lighten($text-color-2, 10% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .color-dark-text-#{$i} {
+      color: darken($text-color-2, 10% * $i);
+    }
+
+    $i: $i + 1;
+  }
+
+}
+
+@mixin mixin-color3 {
+  $i: 1;
+  @while $i <= 4 {
+    .box-darken-#{$i} {
+      background-color: darken($base-color3, 7% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .box-lighten-#{$i} {
+      background-color: lighten($base-color3, 7% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .color-light-text-#{$i} {
+      color: lighten($text-color-3, 10% * $i);
+    }
+
+    $i: $i + 1;
+  }
+  $i: 1;
+  @while $i <= 4 {
+    .color-dark-text-#{$i} {
+      color: darken($text-color-3, 10% * $i);
+    }
+
+    $i: $i + 1;
+  }
+
+}
