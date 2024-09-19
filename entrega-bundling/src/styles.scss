@@ -1,0 +1,21 @@
+$color-background: black;
+$text-color: white;
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: $color-background;
+    margin: 0;
+    padding: 0;
+  }
+  
+h1 {
+  color: $text-color;
+}
+
+img {
+    width: 5rem;
+}
