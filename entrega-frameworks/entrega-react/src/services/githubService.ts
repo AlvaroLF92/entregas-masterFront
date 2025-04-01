@@ -1,14 +1,9 @@
-const GITHUB_TOKEN = "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";
-
 export const fetchMembersData = async (organization: string, page: number) => {
   const perPage = 10;
   const url = `https://api.github.com/orgs/${organization}/members?per_page=${perPage}&page=${page}`;
 
-  const headers = GITHUB_TOKEN
-    ? { Authorization: `token ${GITHUB_TOKEN}` }
-    : {};
-
-  const response = await fetch(url, { headers });
+  // Elimina cualquier verificación del token, no se incluirá ningún encabezado de autorización
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error(`Error al obtener miembros: ${response.statusText}`);
