@@ -1,0 +1,47 @@
+<div class="gallery-container">
+  <div *ngIf="selectedImage" class="selected-image">
+    <img
+      id="selected-image"
+      [src]="selectedImage.src"
+      [alt]="selectedImage.title"
+    />
+  </div>
+
+  <div class="image-list">
+    <div
+      *ngFor="let image of paginatedImages"
+      class="image-item"
+      (click)="selectImage(image)"
+    >
+      <img [src]="image.src" [alt]="image.title" />
+    </div>
+  </div>
+
+  <div class="controls">
+    <button (click)="prevImage()" [disabled]="currentIndex === 0">
+      Anterior
+    </button>
+    <button
+      (click)="nextImage()"
+      [disabled]="currentIndex === images.length - 1"
+    >
+      Siguiente
+    </button>
+    <button (click)="zoomIn()">Aumentar</button>
+    <button (click)="zoomOut()">Disminuir</button>
+    <button *ngIf="!isPlaying" (click)="startSlideshow()">Play</button>
+    <button *ngIf="isPlaying" (click)="stopSlideshow()">Stop</button>
+  </div>
+
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 0">
+      Anterior Página
+    </button>
+    <button
+      (click)="nextPage()"
+      [disabled]="(currentPage + 1) * pageSize >= images.length"
+    >
+      Siguiente Página
+    </button>
+  </div>
+</div>

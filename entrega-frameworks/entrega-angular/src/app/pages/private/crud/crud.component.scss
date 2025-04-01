@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 4rem;
+  gap: 2rem;
+}
+
+.table-container {
+  width: 50%;
+  border-right: 1px solid #ddd;
+  padding-right: 1rem;
+  
+}
+.list-title {
+  text-align: center;
+}
+
+.details-container {
+  width: 50%;
+  padding-left: 1rem;
+}
+
+.delete-btn {
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn .material-icons {
+  font-size: 20px;
+}
+
+.add-user-container {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

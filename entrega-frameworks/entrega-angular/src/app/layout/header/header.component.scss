@@ -1,0 +1,30 @@
+mat-toolbar {
+  display: flex;
+  background-color: #443195;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+}
+
+.menu-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+button[mat-button] {
+  color: white;
+}
+
+.user-greeting {
+  color: white;
+  margin: 0 1rem;
+}

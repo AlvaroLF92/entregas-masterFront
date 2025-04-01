@@ -12,7 +12,7 @@
         "skipLibCheck":true,
         "esModuleInterop":true
     },
-    "include": ["src/**/*","webpack.prod.js"],
+    "include": ["src/**/*","webpack.prod.js","webpack.dev.js"],
     "exclude": [
         "node_modules",
         "dist"

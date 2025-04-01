@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span class="logo">Mi App</span>
+
+  <div class="menu-container">
+    <ng-container *ngIf="isAuthenticated$ | async; else publicMenu">
+      <app-private-menu></app-private-menu>
+      <span class="user-greeting">Hola, {{ userName$ | async }}</span>
+      <button mat-button (click)="logout()">Cerrar sesión</button>
+    </ng-container>
+
+    <ng-template #publicMenu>
+      <app-public-menu></app-public-menu>
+    </ng-template>
+  </div>
+</mat-toolbar>

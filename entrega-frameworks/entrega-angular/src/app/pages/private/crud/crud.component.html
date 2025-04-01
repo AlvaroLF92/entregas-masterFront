@@ -1,0 +1,95 @@
+<div class="add-user-container">
+  <h3>Añadir Usuario</h3>
+  <div class="form-container" (click)=" onClickOutside($event)">
+    <div #formContainer>
+      <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="newUser.name" name="name" required />
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="newUser.email" name="email" required />
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Teléfono</mat-label>
+          <input matInput [(ngModel)]="newUser.phone" name="phone" required />
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" type="submit">Agregar</button>
+      </form>
+    </div>
+  </div>
+</div>
+<h3 class="list-title">Lista de Usuarios:</h3>
+<div class="container">
+  <div *ngIf="users.length > 0; else noUsers">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" (click)="selectUser(user)">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email || "N/A" }}</td>
+          <td>{{ user.phone || "N/A" }}</td>
+          <td>
+            <button (click)="deleteUser(user.id, $event)" class="delete-btn">
+              <span class="material-icons">close</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noUsers>
+    <p>No hay usuarios para mostrar.</p>
+  </ng-template>
+
+  <div *ngIf="selectedUser" class="details-container">
+    <div *ngIf="!editMode" class="details-view">
+      <h3>Detalles del Usuario</h3>
+      <p><strong>ID:</strong> {{ selectedUser.id }}</p>
+      <p><strong>Nombre:</strong> {{ selectedUser.name }}</p>
+      <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+      <p><strong>Phone:</strong> {{ selectedUser.phone }}</p>
+      <button mat-raised-button color="primary" (click)="editUser()">
+        Editar
+      </button>
+      <button mat-raised-button color="warn" (click)="cancelDetail()">
+        Cancelar
+      </button>
+    </div>
+
+    <div *ngIf="editMode" class="edit-view">
+      <h3>Editar Usuario</h3>
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="selectedUser.name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="selectedUser.email" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput [(ngModel)]="selectedUser.phone" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="saveUser()">
+        Guardar
+      </button>
+      <button mat-raised-button color="warn" (click)="cancelEdit()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>

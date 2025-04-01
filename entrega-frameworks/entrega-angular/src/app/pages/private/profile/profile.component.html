@@ -1,0 +1,19 @@
+<div class="profile-container">
+    <mat-card class="profile-card">
+      <h2>Perfil</h2>
+      <p>Hola, <span *ngIf="userName$ | async as userName">{{ userName }}</span></p>
+  
+      <!-- Formulario para cambiar el nombre de usuario -->
+      <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nuevo nombre de usuario</mat-label>
+          <input matInput formControlName="userName" />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid">
+          Guardar
+        </button>
+      </form>
+    </mat-card>
+  </div>
+  

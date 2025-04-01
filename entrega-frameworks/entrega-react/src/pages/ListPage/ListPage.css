@@ -1,0 +1,61 @@
+.list-container {
+  padding: 1.25rem;
+  font-family: Arial, sans-serif;
+}
+.list-title {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.25rem;
+}
+
+.error-message {
+  color: red;
+  margin-top: 0.625rem;
+}
+
+.loading-message {
+  margin-top: 0.625rem;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  margin: 2.2rem;
+  justify-content: center;
+}
+
+.table-container {
+  margin-top: 1.25rem;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.custom-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.custom-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-members-message {
+  text-align: center;
+  margin-top: 1.25rem;
+}
