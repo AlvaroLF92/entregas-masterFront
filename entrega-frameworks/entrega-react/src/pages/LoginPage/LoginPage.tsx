@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext/AuthContext";
 import { TextField, Button, Box, Typography, Container } from "@mui/material";
-import "./LoginPage.css"; 
+import "./LoginPage.css";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -12,6 +14,7 @@ export const LoginPage: React.FC = () => {
     e.preventDefault();
 
     if (username === "admin" && password === "test") {
+      login(username);
       navigate("/home");
     } else {
       alert("User / password not valid, psst... admin / test");

@@ -1,9 +1,3 @@
-export interface MemberEntity {
-  id: string;
-  login: string;
-  avatar_url: string;
-}
-
 export interface CharacterEntity {
   id: number;
   name: string;
@@ -41,4 +35,11 @@ export interface SearchBarProps {
 export interface FilterBarProps {
   onFilter: (term: string) => void;
   placeholder?: string;
+}
+
+export interface AuthContextType {
+  user: string | null;
+  isAuthenticated: boolean;
+  login: (username: string) => void;
+  logout: () => void;
 }

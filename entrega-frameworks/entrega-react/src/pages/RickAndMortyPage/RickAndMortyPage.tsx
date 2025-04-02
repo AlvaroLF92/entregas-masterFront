@@ -15,44 +15,41 @@ import { CharacterEntity } from "../../model";
 import { FilterBar } from "../../components/FilterBar/FilterBar";
 import "./RickAndMortyPage.css";
 import { useNavigate } from "react-router-dom";
+import useDebounce from "../../hooks/useDebounce";
 
 export const RickAndMortyPage: React.FC = () => {
   const [allCharacters, setAllCharacters] = useState<CharacterEntity[]>([]);
-  const [filteredCharacters, setFilteredCharacters] = useState<CharacterEntity[]>(
-    []
-  );
+  const [filteredCharacters, setFilteredCharacters] = useState<
+    CharacterEntity[]
+  >([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const rowsPerPage = 5;
   const navigate = useNavigate();
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-  // Cargar todos los personajes desde el servicio
   useEffect(() => {
     fetchCharactersData("")
       .then((results) => {
         setAllCharacters(results);
-        setFilteredCharacters(results); // Inicialmente no hay filtro, por lo que se usan todos los personajes
+        setFilteredCharacters(results);
       })
       .catch((error) => {
         console.error("Error al obtener personajes:", error);
       });
-  }, []); // Se ejecuta solo cuando el componente se monta
+  }, []);
 
-  // Aplicar filtro de búsqueda cada vez que el término de búsqueda cambie
   useEffect(() => {
     const filtered = allCharacters.filter((character) =>
-      character.name.toLowerCase().includes(searchTerm.toLowerCase())
+      character.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
     );
     setFilteredCharacters(filtered);
-    setPage(1); // Restablecer la página cuando cambie el filtro
-  }, [searchTerm, allCharacters]);
+  }, [debouncedSearchTerm, allCharacters]);
 
-  // Manejar la búsqueda
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
 
-  // Manejo de la paginación
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
@@ -86,10 +83,7 @@ export const RickAndMortyPage: React.FC = () => {
             {filteredCharacters
               .slice((page - 1) * rowsPerPage, page * rowsPerPage)
               .map((character) => (
-                <CharacterCard
-                  key={character.id}
-                  character={character}
-                />
+                <CharacterCard key={character.id} character={character} />
               ))}
           </TableBody>
         </Table>

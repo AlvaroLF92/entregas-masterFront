@@ -1,8 +1,6 @@
 export const fetchMembersData = async (organization: string, page: number) => {
   const perPage = 10;
   const url = `https://api.github.com/orgs/${organization}/members?per_page=${perPage}&page=${page}`;
-
-  // Elimina cualquier verificación del token, no se incluirá ningún encabezado de autorización
   const response = await fetch(url);
 
   if (!response.ok) {
