@@ -1,6 +1,14 @@
-// ListPage.tsx
 import React, { useState, useEffect } from "react";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Pagination } from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Pagination,
+} from "@mui/material";
 import { fetchMembersData } from "../../services/githubService";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { MemberCard } from "../../components/MemberCard/MemberCard";
@@ -8,7 +16,9 @@ import { useNavigate } from "react-router-dom";
 import "./ListPage.css";
 
 export const ListPage: React.FC = () => {
-  const [organization, setOrganization] = useState(localStorage.getItem("organization") || "lemoncode");
+  const [organization, setOrganization] = useState(
+    localStorage.getItem("organization") || "lemoncode"
+  );
   const [page, setPage] = useState(1);
   const [membersData, setMembersData] = useState({
     members: [],
@@ -63,8 +73,12 @@ export const ListPage: React.FC = () => {
         className="pagination"
       />
 
-      {membersData.error && <div className="error-message">{membersData.error}</div>}
-      {membersData.loading && <div className="loading-message">Cargando miembros...</div>}
+      {membersData.error && (
+        <div className="error-message">{membersData.error}</div>
+      )}
+      {membersData.loading && (
+        <div className="loading-message">Cargando miembros...</div>
+      )}
 
       {!membersData.loading && membersData.members.length > 0 && (
         <TableContainer component={Paper} className="table-container">
@@ -85,9 +99,11 @@ export const ListPage: React.FC = () => {
         </TableContainer>
       )}
 
-      {!membersData.loading && membersData.members.length === 0 && !membersData.error && (
-        <div className="no-members-message">No se encontraron miembros.</div>
-      )}
+      {!membersData.loading &&
+        membersData.members.length === 0 &&
+        !membersData.error && (
+          <div className="no-members-message">No se encontraron miembros.</div>
+        )}
     </div>
   );
 };

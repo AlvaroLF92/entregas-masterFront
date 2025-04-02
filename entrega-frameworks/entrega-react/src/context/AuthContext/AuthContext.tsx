@@ -7,6 +7,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<string | null>(localStorage.getItem("user"));
+
   const isAuthenticated = !!user;
 
   useEffect(() => {
@@ -20,11 +21,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const login = (username: string) => {
     setUser(username);
     localStorage.setItem("user", username);
+    localStorage.setItem("isAuthenticated", "true");
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    localStorage.removeItem("organization");
+    localStorage.removeItem("isAuthenticated");
   };
 
   return (
@@ -36,8 +40,5 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth debe usarse dentro de un AuthProvider");
-  }
   return context;
 };
