@@ -1,0 +1,177 @@
+body {
+  font-family: "Jost", sans-serif;
+  box-sizing: border-box;
+}
+
+.app-container {
+  background-color: #141414;
+  font-family: "Jost", sans-serif;
+  color: azure;
+  display: flex;
+  flex-direction: column;
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+ 
+  }
+}
+
+.section-title {
+  padding: 1rem;
+}
+
+.header-container {
+  position: sticky;
+  top: 0;
+  background-color: #141414;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.2);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: auto;
+}
+
+.header-logo {
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.header-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem; 
+}
+
+.header-button {
+  padding: 0.5rem;
+}
+
+.header-button:hover {
+  background-color: grey;
+  border-radius: 0.4rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  margin: 0.5rem;
+  img {
+    width: 15.2rem;
+    height: 13rem;
+  }
+}
+
+#top-text {
+  font-weight: bold;
+  color: grey;
+  font-size: 1.2rem;
+}
+
+#top-text-mobile {
+  font-weight: bold;
+  color: grey;
+  font-size: 1.2rem;
+}
+
+#top-text-mobile {
+  display: none;
+}
+
+.first,
+.second {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  max-width: 100%;
+  height: auto;
+
+  img {
+    transition: transform 0.3s ease;
+  }
+  img:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+  }
+}
+
+.footer-container {
+  background-color: #222222;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 4px 0 6px -1px rgba(255, 255, 255, 0.2);
+}
+
+.footer-logo {
+  width: 4rem;
+}
+
+@media (max-width: 1280px) {
+  .warner-live {
+    display: none;
+  }
+
+  .top {
+    gap: 0.2rem;
+    img {
+      width: 14.2rem;
+      height: 13rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .warner-live {
+    display: none;
+  }
+  .top {
+    gap: 0.5rem;
+    img {
+      width: 11.2rem;
+      height: 11rem;
+    }
+  }
+  .top .top-item:nth-child(n + 4) {
+    display: none;
+  }
+
+  #top-text {
+    display: none;
+  }
+  #top-text-mobile {
+    display: inline;
+  }
+  .first,
+  .second {
+   
+    img {
+      width: 13rem;
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+    }
+  }
+}
