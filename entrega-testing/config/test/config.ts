@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     restoreMocks: true,
-    environment: 'jsdom',
+    environment: 'jsdom', // Entorno de React PUTA
     setupFiles: ['./config/test/setup.ts'],
   },
 });
