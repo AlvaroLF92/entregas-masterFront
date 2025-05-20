@@ -1,3 +1,6 @@
+// LABORATORIO OBLIGATORIO
+
+
 - Comenzamos creando una nueva rama para los ejercicios obligatorios del lab llamada "feature/laboratorio-testing-obligatorio".
 
 - Instalamos dependencias y ejecutamos audit-fix.
@@ -40,60 +43,90 @@
 
   Casos que nos interesa testear:
 
-  1. - Verifica que el componente muestre el contenido del diálogo correctamente cuando isopen=true. 
+  1. - Verificar que el componente muestre el contenido del diálogo correctamente cuando isopen=true. 
 
-      ¿Qué comprueba?
+      Que necesitamos verificar en el test:  
 
-      Que el texto del children (mensaje de confirmación) se renderiza en el DOM.
+      - Que el texto del children (mensaje de confirmación) se renderiza en el DOM.
 
-      Demuestra que el componente es visible cuando se espera.
+      - Demostrar que el componente es visible cuando se espera.
 
-  2) - Comprueba que al hacer clic en el botón "Cancelar", se llama a la función onClose.
+  2) - Comprobar que, al hacer clic en el botón "Cancelar", se llama a la función onClose.
 
-      ¿Qué comprueba?
+      Como hacemos esto:
       
-      Que se ejecuta correctamente la función proporcionada para cerrar el diálogo.
+      Comprobando que se ejecuta correctamente la función proporcionada para cerrar el diálogo y que el componente responde a eventos del usuario.
 
-      Que el componente responde a eventos del usuario.
+     
 
-  3) - Verifica que al hacer clic en el botón "Aceptar", se dispare la función onAccept.
+  3) - Verificar, por útlimo que, al hacer clic en el botón "Aceptar", se dispare la función onAccept.
 
-      ¿Qué comprueba?
+      Copmo lo hacemos:
 
-      Que se ejecuta correctamente la acción de aceptación.
+      - Comprobando que se ejecuta correctamente la acción de aceptación y que el componente ejecuta correctamente el callback recibido como prop.
 
-      Que el componente ejecuta correctamente el callback recibido como prop.
+      
   
 
 - Por último dentro del laboratorio obligatorio vamos a añadir tests al hook confirmation-dialog.hook.ts
 
   Casos que nos interesa testear:
 
-  1) - Comprueba que el hook se inicializa correctamente.
+  1) - Necesitamos comprobar que el hook se inicializa correctamente.
 
-        ¿Qué comprueba?
+        Para que sea existoso necesitamos comprobar que: 
     
-        isOpen es false al inicio.
+        -isOpen sea false al inicio.
 
-        itemToDelete está vacío usando createEmptyLookup().
+        -itemToDelete este vacío usando createEmptyLookup().
 
 
-  2) - Verifica que al llamar a onOpenDialog(item), el estado del diálogo se actualiza correctamente.
+  2) - Ahora necesitamos comprobar que el estado del diálogo se actualiza correctamente:
 
-       ¿Qué comprueba?
-     
-       El estado isOpen cambia a true.
+       Necesitamos verificae que al llamar a onOpenDialog(item):
 
-       El valor de itemToDelete se establece con el item recibido.  
+       -El estado isOpen cambia a true.
 
-  3) - Verifica que onClose cierre el diálogo correctamente.
+       -El valor de itemToDelete se establece con el item recibido.  
 
-       ¿Qué comprueba?
+  3) - Seguidamente queremos asegurarnos de que onClose cierre el diálogo correctamente.
 
        El estado isOpen cambia a false.    
 
-  4) - Comprueba que onAccept limpia el valor de itemToDelete.
+  4) - Y , por último comprobar que onAccept limpia el valor de itemToDelete.
 
-       ¿Qué comprueba?
-       
-       itemToDelete vuelve a su estado vacío con createEmptyLookup().      
+       - itemToDelete vuelve a su estado vacío con createEmptyLookup().      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// LABORATORIO OPCIONAL
+
+Comenzaremos el laboratorio opcional con los test unitarios para spinner.tsx , antes de comenzar con la pipeline y los test e2e.
+
+- Vamos con los test de spinner.component.tsx:
+
+    Este componente se muestra cuando promiseInProgress es true , por lo que vamos a testear ambas casuísticas:
+
+    1)  - promiseInprogress = true :
+
+        - Necesitamos un mock del hook para simular una promesa activa.
+
+        - Utilizamos getByRole puesto que el loader esta dentro de un modal de MUI.
+
+        - Comprobamos con expect / toBeInDocument que se ha renderizado.
+
+    2) - Muy parecido al test anterior , con la diferencia de que no necesitamos el mock puesto que promiseInProgress será false y sólo necesitamos comprobar que no se está renderizando.
+
+Ahora vamos a pasar a crear .github/workflows/unit-tests.yml para añadir al proyecto nuestra pipeline de CI y poder ejecutar nuestros test cada vez que hagamos un push o PR.
+   

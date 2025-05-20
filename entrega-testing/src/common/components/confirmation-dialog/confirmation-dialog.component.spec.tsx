@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { ConfirmationDialogComponent  } from './confirmation-dialog.component';
 import type { Props } from './confirmation-dialog.component';
 import React from 'react';
-import { vi } from 'vitest';
+
 
 describe('ConfirmationDialogComponent', () => {
   const mockOnClose = vi.fn();
