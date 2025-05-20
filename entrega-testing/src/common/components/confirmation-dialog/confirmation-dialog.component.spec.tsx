@@ -40,4 +40,5 @@ describe('ConfirmationDialogComponent', () => {
     fireEvent.click(screen.getByText(/Aceptar/i));
     expect(mockOnAccept).toHaveBeenCalledTimes(1);
   });
+  
 });
