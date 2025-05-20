@@ -18,7 +18,7 @@ describe('SpinnerComponent', () => {
     vi.clearAllMocks();
   });
 
-  it('should render spinner when promiseInProgress = true', () => {
+  it('should render the spinner when promiseInProgress = true', () => {
     // Arrange
     (usePromiseTracker as unknown as () => { promiseInProgress: boolean }) as any;
     (usePromiseTracker as any).mockReturnValue({ promiseInProgress: true });
