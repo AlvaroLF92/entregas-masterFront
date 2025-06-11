@@ -22,3 +22,6 @@
     - "predeploy": "npm run build",
 
       "deploy": "gh-pages -d dist"
+
+
+- A pesar de todos los esfuerzos la build falla, necesito ayuda de un mentor.      
